@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dhiman Web Studio — Premium websites, landing pages, e-commerce and custom web experiences.">
+<meta name="theme-color" content="#07070b">
+<title>Dhiman Web Studio — Your Idea. Our Code.</title>
+
+<style>
+:root{
+  --bg:#07070b;--bg2:#0c0c12;--card:#111118;--line:rgba(255,255,255,.09);
+  --text:#f7f7fb;--muted:#999aaa;--purple:#8b5cf6;--violet:#a855f7;
+  --cyan:#22d3ee;--green:#25d366;--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+   radial-gradient(circle at 15% 10%,rgba(139,92,246,.14),transparent 25%),
+   radial-gradient(circle at 85% 35%,rgba(34,211,238,.08),transparent 22%),
+   linear-gradient(180deg,#07070b,#090910 55%,#07070b)
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.28;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:60px 60px;mask-image:linear-gradient(to bottom,black,transparent 80%)
+}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(7,7,11,.68);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.08rem;font-weight:900;letter-spacing:-.5px}
+.logo b{background:linear-gradient(135deg,#fff,#a78bfa 55%,#22d3ee);-webkit-background-clip:text;color:transparent}
+.navlinks{display:flex;gap:27px;list-style:none}
+.navlinks a{font-size:.84rem;color:#aaaab8;transition:.25s}.navlinks a:hover{color:#fff}
+.navcta,.btn.primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:999px;padding:12px 19px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#8b5cf6,#6366f1);box-shadow:0 10px 30px rgba(139,92,246,.24);
+  transition:.25s;cursor:pointer
+}
+.navcta:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(139,92,246,.3)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:1.6rem}
+
+.hero{min-height:100vh;padding:145px 0 80px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.pill{
+ display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(34,211,238,.2);
+ background:rgba(34,211,238,.055);border-radius:999px;color:#67e8f9;font-size:.72rem;font-weight:800;
+ text-transform:uppercase;letter-spacing:1.3px
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 14px #22d3ee}
+.hero h1{font-size:clamp(3.2rem,7vw,6.4rem);line-height:.94;letter-spacing:-5px;margin:23px 0}
+.grad{background:linear-gradient(120deg,#fff 10%,#a78bfa 48%,#22d3ee);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:620px;color:var(--muted);font-size:1.08rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:800;border:1px solid var(--line);transition:.25s}
+.btn.secondary{background:rgba(255,255,255,.035)}
+.mini-stats{display:flex;gap:25px;margin-top:42px;flex-wrap:wrap}
+.stat strong{display:block;font-size:1.15rem}.stat span{font-size:.72rem;color:var(--muted)}
+.visual{
+ position:relative;min-height:470px;border:1px solid var(--line);border-radius:30px;
+ background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
+ box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden
+}
+.visual:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;top:-100px;right:-80px;background:rgba(139,92,246,.25);filter:blur(55px)}
+.browser{position:absolute;inset:38px 25px 25px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:#0b0b11;overflow:hidden;box-shadow:0 20px 60px #000}
+.browserbar{height:40px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 13px}
+.browserbar i{width:7px;height:7px;border-radius:50%;background:#555}
+.address{height:20px;flex:1;margin-left:10px;border-radius:6px;background:rgba(255,255,255,.045)}
+.mock{padding:27px}.mocknav{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+.mocklogo{font-weight:900}.mocknav span{font-size:.62rem;color:#777}
+.mock h3{font-size:2.4rem;line-height:1;margin-bottom:12px}.mock p{font-size:.7rem;color:#777;max-width:260px}
+.mockbtn{display:inline-block;margin-top:18px;background:#8b5cf6;padding:9px 14px;border-radius:20px;font-size:.65rem;font-weight:800}
+.mockcards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:30px}
+.mockcard{height:95px;border-radius:11px;border:1px solid var(--line);background:linear-gradient(145deg,#17151f,#0e0e14);padding:11px}
+.mockcard b{font-size:.7rem}.mockcard small{display:block;color:#666;font-size:.52rem;margin-top:8px}
+
+section{padding:105px 0}
+.eyebrow{color:#67e8f9;text-transform:uppercase;letter-spacing:2px;font-size:.68rem;font-weight:900;margin-bottom:9px}
+.head{max-width:680px;margin-bottom:48px}.head.center{text-align:center;margin-left:auto;margin-right:auto}
+.head h2{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.03;letter-spacing:-2.5px;margin-bottom:13px}
+.head p{color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{
+ border:1px solid var(--line);border-radius:22px;padding:28px;
+ background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+ transition:.3s;position:relative;overflow:hidden
+}
+.card:hover{transform:translateY(-7px);border-color:rgba(139,92,246,.45);box-shadow:0 22px 60px rgba(0,0,0,.3)}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(139,92,246,.11);font-size:1.35rem;margin-bottom:19px}
+.card h3{font-size:1.08rem;margin-bottom:8px}.card p{font-size:.86rem;color:var(--muted)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stepnum{font-size:2.1rem;font-weight:950;color:rgba(139,92,246,.5);margin-bottom:22px}
+.work{min-height:270px;display:flex;flex-direction:column;justify-content:flex-end}
+.tag{display:inline-block;width:max-content;padding:5px 9px;border-radius:99px;background:rgba(34,211,238,.07);color:#67e8f9;font-size:.62rem;font-weight:900;margin-bottom:12px}
+.work:nth-child(1){background:radial-gradient(circle at 80% 20%,rgba(139,92,246,.18),transparent 35%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.work:nth-child(2){background:radial-gradient(circle at 20% 20%,rgba(34,211,238,.13),transparent 35%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.work:nth-child(3){background:radial-gradient(circle at 80% 80%,rgba(168,85,247,.14),transparent 35%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.pricecard{min-height:420px;display:flex;flex-direction:column}
+.price{font-size:2.55rem;font-weight:950;margin:18px 0}.price small{font-size:.72rem;color:var(--muted);font-weight:500}
+.featured{border-color:rgba(139,92,246,.55);background:linear-gradient(180deg,rgba(139,92,246,.13),rgba(255,255,255,.018))}
+.pop{display:inline-block;width:max-content;background:#8b5cf6;border-radius:99px;padding:5px 9px;font-size:.6rem;font-weight:900}
+.features{list-style:none;margin-bottom:28px}.features li{font-size:.82rem;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.pricecard .btn{margin-top:auto;width:100%}
+.cta{padding:70px 35px;text-align:center;border:1px solid rgba(139,92,246,.28);border-radius:30px;background:radial-gradient(circle at 50% 0%,rgba(139,92,246,.2),transparent 55%),rgba(255,255,255,.025)}
+.cta h2{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1;margin-bottom:14px}.cta p{max-width:620px;margin:0 auto 25px;color:var(--muted)}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}
+.contactbox,.formbox{border:1px solid var(--line);border-radius:22px;padding:29px;background:rgba(255,255,255,.025)}
+.contactbox h3{font-size:1.45rem;margin-bottom:9px}.contactbox>p{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+.item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}.item small{display:block;color:#777;font-size:.68rem}.item a{color:#67e8f9;font-weight:800}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+label{font-size:.72rem;font-weight:800;color:#d9d9e3}
+input,select,textarea{width:100%;padding:12px 13px;border-radius:11px;border:1px solid var(--line);outline:none;background:rgba(0,0,0,.22);color:#fff}
+textarea{min-height:125px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.1)}
+option{background:#10101b}.submit{width:100%;margin-top:15px}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:32px 0;color:#777;font-size:.75rem}
+.footerin{display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}.visual{min-height:420px}.grid3{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}
+ .navlinks,.navcta{display:none}.menu{display:block}
+ .navlinks.open{display:flex;position:absolute;top:78px;left:15px;right:15px;padding:20px;flex-direction:column;gap:17px;background:#101018;border:1px solid var(--line);border-radius:18px}
+ .contact{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .container{width:min(100% - 28px,var(--max))}.hero{padding-top:125px}.hero h1{letter-spacing:-2.5px;font-size:3.45rem}
+ section{padding:75px 0}.grid3,.process,.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.visual{min-height:365px}.browser{inset:25px 15px 15px}.mock{padding:20px}.mock h3{font-size:1.8rem}.mockcards{grid-template-columns:1fr 1fr}.mockcard:last-child{display:none}
+ .footerin{flex-direction:column;text-align:center}.actions .btn{width:100%}.mini-stats{gap:18px}
+}
+</style>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="#"><b>Dhiman Web Studio</b></a>
+  <button class="menu" id="menu" aria-label="Menu">☰</button>
+  <ul class="navlinks" id="links">
+   <li><a href="#services">Services</a></li><li><a href="#work">Work</a></li>
+   <li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="navcta" href="#contact">Start Project →</a>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container hero-grid">
+  <div class="reveal">
+   <div class="pill"><span class="dot"></span> Taking new projects</div>
+   <h1>Your Idea.<br><span class="grad">Our Code.</span></h1>
+   <p>Premium websites for businesses, creators and ambitious ideas — designed to look sharp, load fast and turn visitors into customers.</p>
+   <div class="actions">
+    <a class="btn primary" href="#contact">🚀 Start Your Project</a>
+    <a class="btn secondary" href="#work">See Our Work ↗</a>
+   </div>
+   <div class="mini-stats">
+    <div class="stat"><strong>⚡ Fast</strong><span>Performance focused</span></div>
+    <div class="stat"><strong>📱 Responsive</strong><span>Mobile first</span></div>
+    <div class="stat"><strong>💬 Direct</strong><span>Talk to us directly</span></div>
+   </div>
+  </div>
+  <div class="visual reveal">
+   <div class="browser">
+    <div class="browserbar"><i></i><i></i><i></i><div class="address"></div></div>
+    <div class="mock">
+     <div class="mocknav"><b class="mocklogo">YOUR BRAND</b><span>HOME &nbsp; SERVICES &nbsp; CONTACT</span></div>
+     <h3>Build something<br><span class="grad">people remember.</span></h3>
+     <p>A premium digital experience designed around your business.</p>
+     <span class="mockbtn">LET'S TALK →</span>
+     <div class="mockcards"><div class="mockcard"><b>01</b><small>Premium UI</small></div><div class="mockcard"><b>02</b><small>Fast performance</small></div><div class="mockcard"><b>03</b><small>Mobile ready</small></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="head center reveal"><div class="eyebrow">What We Build</div><h2>Digital experiences that feel premium.</h2><p>Everything you need to establish a serious online presence — without the boring template look.</p></div>
+  <div class="grid3">
+   <div class="card reveal"><div class="icon">🌐</div><h3>Business Websites</h3><p>Professional websites that explain what you do, build trust and make contacting you effortless.</p></div>
+   <div class="card reveal"><div class="icon">🛒</div><h3>E-Commerce</h3><p>Clean product experiences built around discovery, trust and simple purchasing journeys.</p></div>
+   <div class="card reveal"><div class="icon">🎯</div><h3>Landing Pages</h3><p>Focused pages for campaigns, products and offers designed to drive action.</p></div>
+   <div class="card reveal"><div class="icon">👨‍💻</div><h3>Portfolio Websites</h3><p>Distinctive portfolios that present your work with clarity and personality.</p></div>
+   <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Web Apps</h3><p>Purpose-built web experiences for workflows, dashboards, tools and unique ideas.</p></div>
+   <div class="card reveal"><div class="icon">📱</div><h3>Mobile-First</h3><p>Every interface is crafted to feel great on phones, tablets and desktop screens.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="container">
+  <div class="head reveal"><div class="eyebrow">Selected Work</div><h2>Built for different kinds of ambition.</h2><p>Examples of the digital experiences we can create for you.</p></div>
+  <div class="grid3">
+   <div class="card work reveal"><div><span class="tag">Local Business</span><h3>Business Growth Website</h3><p>Services, trust signals, gallery and direct WhatsApp enquiries in one polished experience.</p></div></div>
+   <div class="card work reveal"><div><span class="tag">E-Commerce</span><h3>Modern Online Store</h3><p>Product-focused layouts with a fast, mobile-friendly shopping journey.</p></div></div>
+   <div class="card work reveal"><div><span class="tag">Creator</span><h3>Personal Portfolio</h3><p>A bold portfolio that puts the creator's work, story and contact options first.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="process">
+ <div class="container">
+  <div class="head center reveal"><div class="eyebrow">How It Works</div><h2>Simple from start to launch.</h2><p>No confusing process. Just clear communication and focused execution.</p></div>
+  <div class="process">
+   <div class="card reveal"><div class="stepnum">01</div><h3>Tell Us</h3><p>Share your idea, business and what you want the website to achieve.</p></div>
+   <div class="card reveal"><div class="stepnum">02</div><h3>Plan</h3><p>We shape the structure, content direction and visual style.</p></div>
+   <div class="card reveal"><div class="stepnum">03</div><h3>Build</h3><p>We turn the approved direction into a responsive polished website.</p></div>
+   <div class="card reveal"><div class="stepnum">04</div><h3>Launch</h3><p>Final testing, optimization and handover so you can go live.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="pricing">
+ <div class="container">
+  <div class="head center reveal"><div class="eyebrow">Pricing</div><h2>Start small. Build bigger.</h2><p>Simple starting packages. Custom requirements can be discussed directly.</p></div>
+  <div class="grid3">
+   <div class="card pricecard reveal"><div><h3>Starter</h3><p>For a clean online presence.</p><div class="price">₹4,999 <small>starting</small></div><ul class="features"><li>✓ One-page website</li><li>✓ Mobile responsive</li><li>✓ WhatsApp contact</li><li>✓ Basic SEO setup</li></ul></div><a class="btn secondary" href="#contact">Choose Starter</a></div>
+   <div class="card pricecard featured reveal"><div><span class="pop">MOST POPULAR</span><h3>Professional</h3><p>For growing businesses.</p><div class="price">₹9,999 <small>starting</small></div><ul class="features"><li>✓ Up to 5 custom sections/pages</li><li>✓ Premium UI design</li><li>✓ WhatsApp enquiry flow</li><li>✓ Performance optimization</li></ul></div><a class="btn primary" href="#contact">Choose Professional</a></div>
+   <div class="card pricecard reveal"><div><h3>Custom</h3><p>For advanced ideas and apps.</p><div class="price">Let's Talk</div><ul class="features"><li>✓ Custom web application</li><li>✓ Advanced functionality</li><li>✓ Integrations & dashboards</li><li>✓ Ongoing support options</li></ul></div><a class="btn secondary" href="#contact">Discuss Project</a></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container reveal">
+  <div class="cta"><div class="eyebrow">Have an idea?</div><h2>Let's turn it into a website.</h2><p>Tell us what you're imagining. We'll discuss the idea, requirements and the best way to build it.</p><a class="btn primary" href="#contact">Start a Conversation →</a></div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="head center reveal"><div class="eyebrow">Contact</div><h2>Tell us about your project.</h2><p>Fill this out and we'll open WhatsApp with your project details ready to send.</p></div>
+  <div class="contact">
+   <div class="contactbox reveal"><h3>Let's build something great.</h3><p>Have a business, idea or project in mind? Reach out directly.</p>
+    <div class="item"><small>WhatsApp</small><a href="https://wa.me/919557009068" target="_blank">+91 95570 09068</a></div>
+    <div class="item"><small>Studio</small><span>Dhiman Web Studio</span></div>
+    <div class="item"><small>Response</small><span>Usually within a short time</span></div>
+   </div>
+   <div class="formbox reveal">
+    <form id="form">
+     <div class="formgrid">
+      <div class="field"><label>Your Name</label><input id="name" required placeholder="Your name"></div>
+      <div class="field"><label>Phone</label><input id="phone" required type="tel" placeholder="Your phone number"></div>
+      <div class="field"><label>Service</label><select id="service"><option>Business Website</option><option>E-Commerce Website</option><option>Landing Page</option><option>Portfolio Website</option><option>Custom Web App</option></select></div>
+      <div class="field"><label>Budget</label><select id="budget"><option>₹5,000 – ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000+</option><option>Not sure yet</option></select></div>
+      <div class="field full"><label>Project Details</label><textarea id="details" required placeholder="Tell us what you want to build..."></textarea></div>
+     </div>
+     <button class="btn primary submit" type="submit">Send on WhatsApp 💬</button>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="container footerin"><div><b>Dhiman Web Studio</b> — Your Idea. Our Code.</div><div>© 2026 Dhiman Web Studio</div></div></footer>
+
+<script>
+const menu=document.getElementById("menu"),links=document.getElementById("links");
+menu.addEventListener("click",()=>links.classList.toggle("open"));
+document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")})
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.getElementById("form").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=document.getElementById("name").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ const service=document.getElementById("service").value;
+ const budget=document.getElementById("budget").value;
+ const details=document.getElementById("details").value.trim();
+ const message=`*New Project Inquiry — Dhiman Web Studio*%0A%0A👤 *Name:* ${encodeURIComponent(name)}%0A📞 *Phone:* ${encodeURIComponent(phone)}%0A🛠️ *Service:* ${encodeURIComponent(service)}%0A💰 *Budget:* ${encodeURIComponent(budget)}%0A%0A📝 *Project Details:*%0A${encodeURIComponent(details)}`;
+ window.open("https://wa.me/919557009068?text="+message,"_blank");
+});
+</script>
+</body>
+</html>
